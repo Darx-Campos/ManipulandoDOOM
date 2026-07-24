@@ -1,21 +1,21 @@
-
 let caja = document.getElementById("caja");
+let boton = document.getElementById("crear");
 let resultado = document.getElementById("resultado");
 
-caja.addEventListener("keyup", (e) => {
-   // resultado.innerHTML = e.target.value;
- let palabra = e.target.value;
- let contarVocales = 0
- for (let i = 0; i < palabra.length; i++) {
-    switch (palabra[i]){
-        case "a":
-        case "e":
-        case "i":
-        case "o":
-        case "u":
-            contarVocales++;
-            break;
+boton.addEventListener("click", () => {
+
+    resultado.innerHTML = "";
+
+    let palabra = caja.value.toUpperCase();
+
+    for (let letra of palabra) {
+
+        resultado.innerHTML += `
+            <div>
+                <strong>${letra}</strong>
+                <input type="text" placeholder="Escribe aqui">
+            </div>
+        `;
     }
-}
-    resultado.innerHTML = contarVocales;
+
 });
